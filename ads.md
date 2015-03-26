@@ -6,15 +6,13 @@ Include the following `<style>` in the `<head>` of your page
 ```css
     <style type="text/css">
         /** show an alternate block if ads are disabled on client browser */
-        .ad-slot { display:block !important;}
-        .ad-slot ins.adsbygoogle:not(:empty) ~ .ad-slot-show-if-blocked{ display: none; }
-        .ad-slot ins.adsbygoogle:empty ~ .ad-slot-show-if-blocked{ display: block; }
-    </style>
+        ins.adsbygoogle:not(:empty) ~ .ad-slot-show-if-blocked{ display: none !important; }
+        ins.adsbygoogle:empty ~ .ad-slot-show-if-blocked{ display: block !important; }    </style>
 ```
 Then, in the body of your page, do something like the following
 
 ```html
-	<div class='ad-slot'>
+	<div>
 		<!-- start the google stuff -->
 		<ins><!-- this would all by copy/pasted from your adsense account --></ins>
 		<!-- end the google stuff -->
@@ -25,6 +23,6 @@ Then, in the body of your page, do something like the following
 ```
 
 #### How it works
-AdBlock will automatically nuke the Google Adsense script and set `display: none` on the `ad-slot` block. This will leave the `<ins>` tag `:empty` and the whole block hidden.
+AdBlock will automatically nuke the Google Adsense script and set `display: none` on the `<ins>` block. This will leave the `<ins>` tag `:empty` and the whole block hidden.
 
-Our CSS then simply forces `ad-slot` to always show and just un-hides the `ad-slot-show-if-empty` block if the `ins:empty` is true (meaning the ad was blocked).
+Our CSS then simply un-hides the `ad-slot-show-if-empty` block if the ad was blocked *(namely, `ins:empty`)* or hides itself if the ad wasn't blocked *(namely, `ins:not(:empty)`)*
