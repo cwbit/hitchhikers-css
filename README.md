@@ -8,3 +8,4 @@ This Guide is for CSS stuff - if you're looking for things like PHP, MySQL, Cake
 _**WHY?**_ Mostly because we got sick of forgetting and having to re-discover
 
 1. [Image Tricks](/images.md)
+2. [Ad stuff](/ads.md)
